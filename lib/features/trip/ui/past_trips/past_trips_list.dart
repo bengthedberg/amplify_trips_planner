@@ -2,30 +2,17 @@ import 'package:amplify_trips_planner/common/ui/navigation_drawer.dart';
 import 'package:amplify_trips_planner/features/trip/ui/trip_gridview_item/trip_gridview_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:amplify_trips_planner/features/trip/data/trips_repository.dart';
-import 'package:amplify_trips_planner/features/trip/ui/trips_list/add_trip_bottomsheet.dart';
-
 import 'package:amplify_trips_planner/common/utils/colors.dart' as constants;
 
-class TripsListPage extends ConsumerWidget {
-  const TripsListPage({
+class PastTripsList extends ConsumerWidget {
+  const PastTripsList({
     super.key,
   });
 
-  Future<void> showAddTripDialog(BuildContext context) =>
-      showModalBottomSheet<void>(
-        isScrollControlled: true,
-        elevation: 5,
-        context: context,
-        builder: (sheetContext) {
-          return AddTripBottomSheet();
-        },
-      );
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final tripsListValue = ref.watch(tripsListStreamProvider);
+    final tripsListValue = ref.watch(pastTripsListStreamProvider);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -35,13 +22,6 @@ class TripsListPage extends ConsumerWidget {
         backgroundColor: const Color(constants.primaryColorDark),
       ),
       drawer: const NavigationDrawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showAddTripDialog(context);
-        },
-        backgroundColor: const Color(constants.primaryColorDark),
-        child: const Icon(Icons.add),
-      ),
       body: tripsListValue.when(
         data: (trips) => trips.isEmpty
             ? const Center(
@@ -58,7 +38,7 @@ class TripsListPage extends ConsumerWidget {
                   children: trips.map((tripData) {
                     return TripGridViewItem(
                       trip: tripData!,
-                      isPast: false,
+                      isPast: true,
                     );
                   }).toList(growable: false),
                 );
