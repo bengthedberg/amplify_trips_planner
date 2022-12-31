@@ -1,0 +1,16 @@
+{
+  "resourceName": "s35508882b",
+  "policyUUID": "5508882b",
+  "bucketName": "amplifytripsplanner00a3cbdff2284bbbbf794c921095",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
