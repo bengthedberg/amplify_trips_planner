@@ -10,6 +10,11 @@
       "StackName": "amplify-amplifytripsplanner-dev-111440",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:888988597065:stack/amplify-amplifytripsplanner-dev-111440/80e073b0-88a8-11ed-852b-023762ec3aaa",
       "AmplifyAppId": "d1awo3uu7udofs"
+    },
+    "categories": {
+      "auth": {
+        "amplifytripsplanner1d0588b1": {}
+      }
     }
   }
 }
