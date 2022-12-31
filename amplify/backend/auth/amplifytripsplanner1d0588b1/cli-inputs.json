@@ -84,4 +84,4 @@
     "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"amplifytripsplanner1d0588b1PostConfirmation\"\n  }\n]",
     "permissions": []
   }
-}
+} 
